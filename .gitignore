@@ -12,4 +12,4 @@ storage.db
 *.pem
 *.crt
 media
-private_settings.py
+dist
