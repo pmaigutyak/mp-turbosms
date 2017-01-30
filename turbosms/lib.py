@@ -1,8 +1,8 @@
 
 from django.template.loader import render_to_string
 
-from mpsite.sms.settings import IS_SMS_ENABLED, SMS_RECIPIENTS
-from mpsite.sms.models import SMS
+from turbosms.settings import IS_SMS_ENABLED, SMS_RECIPIENTS
+from turbosms.models import SMS
 
 
 def send_sms(message):

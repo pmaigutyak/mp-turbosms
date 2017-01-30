@@ -1,7 +1,7 @@
 
 from django.contrib import admin
 
-from mpsite.sms.models import SMSRecord
+from turbosms.models import SMSRecord
 
 
 class SMSRecordAdmin(admin.ModelAdmin):

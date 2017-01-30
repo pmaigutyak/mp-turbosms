@@ -2,7 +2,7 @@
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
 
-from mpsite.sms.settings import SMS_DB_TABLE_NAME, SMS_SIGNATURE
+from turbosms.settings import SMS_DB_TABLE_NAME, SMS_SIGNATURE
 
 
 class SMS(models.Model):
