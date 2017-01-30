@@ -23,9 +23,6 @@ class Migration(migrations.Migration):
                 ('wappush', models.CharField(max_length=128)),
                 ('is_flash', models.BooleanField(default=False)),
             ],
-            # options={
-            #     'db_table': 'pmaigutyak',
-            # },
         ),
         migrations.CreateModel(
             name='SMSRecord',
@@ -46,8 +43,5 @@ class Migration(migrations.Migration):
                 ('error_code', models.CharField(max_length=3)),
                 ('status', models.CharField(max_length=255)),
             ],
-            # options={
-            #     'db_table': 'pmaigutyak',
-            # },
         ),
     ]
