@@ -1,8 +1,8 @@
 
-class SMSRouter(object):
+class TurboSMSRouter(object):
 
-    app_label = 'sms'
-    db_name = 'sms'
+    app_label = 'turbosms'
+    db_name = 'turbosms'
 
     def db_for_read(self, model, **hints):
 
