@@ -7,7 +7,7 @@ except ImportError:
 
 setup(
     name='django-turbosms',
-    version='1.0.1',
+    version='1.1',
     description='Turbosms.ua django integration app',
     long_description=open('README.md').read(),
     author='Paul Maigutyak',
