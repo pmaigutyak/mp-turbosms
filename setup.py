@@ -13,6 +13,7 @@ setup(
     author='Paul Maigutyak',
     author_email='pmaigutyak@gmail.com',
     url='https://github.com/pmaigutyak/mp-turbosms',
+    download_url='https://github.com/pmaigutyak/mp-turbosms/archive/1.1.tar.gz',
     packages=['turbosms'],
     license='MIT'
 )
