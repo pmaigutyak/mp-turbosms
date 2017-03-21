@@ -13,3 +13,4 @@ storage.db
 *.crt
 media
 dist
+django_turbosms.egg-info
