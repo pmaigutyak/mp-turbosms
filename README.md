@@ -20,6 +20,7 @@ INSTALLED_APPS = [
 
 DATABASE_ROUTERS = ['turbosms.routers.TurboSMSRouter']
 SMS_DB_TABLE_NAME = ''
+SMS_RECIPIENTS = []
 
 DATABASES = {
     ...,
