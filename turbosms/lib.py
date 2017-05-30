@@ -6,7 +6,7 @@ from turbosms.settings import IS_SMS_ENABLED, SMS_RECIPIENTS
 from turbosms.models import SMS
 
 
-def get_recipients():
+def get_default_sms_recipients():
 
     if apps.is_installed('site_config'):
 
@@ -18,11 +18,16 @@ def get_recipients():
     return SMS_RECIPIENTS
 
 
-def send_sms(message):
+def send_sms(message, recipients=None):
 
-    if IS_SMS_ENABLED:
-        for number in get_recipients():
-            SMS.objects.create(number=number, message=message)
+    if not IS_SMS_ENABLED:
+        return
+
+    if recipients is None:
+        recipients = get_default_sms_recipients()
+
+    for number in recipients:
+        SMS.objects.create(number=number, message=message)
 
 
 def send_sms_from_template(template_name, context=None):
