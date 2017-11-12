@@ -20,7 +20,7 @@ INSTALLED_APPS = [
 
 DATABASE_ROUTERS = ['turbosms.routers.TurboSMSRouter']
 SMS_DB_TABLE_NAME = ''
-SMS_RECIPIENTS = []
+SMS_RECIPIENTS = [] # Can be set using mp-config app
 
 DATABASES = {
     ...,
