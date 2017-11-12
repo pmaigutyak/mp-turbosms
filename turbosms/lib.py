@@ -8,12 +8,12 @@ from turbosms.models import SMS
 
 def get_default_sms_recipients():
 
-    if apps.is_installed('site_config'):
-
-        from site_config import config
-
-        if hasattr(config, 'SMS_RECIPIENTS'):
-            return config.SMS_RECIPIENTS
+    # if apps.is_installed('site_config'):
+    #
+    #     from site_config import config
+    #
+    #     if hasattr(config, 'SMS_RECIPIENTS'):
+    #         return config.SMS_RECIPIENTS
 
     return SMS_RECIPIENTS
 
