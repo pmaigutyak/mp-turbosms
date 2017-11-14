@@ -1,2 +1,2 @@
 
-django-mp-config
+django-mp-config>=3.0
