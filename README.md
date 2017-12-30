@@ -34,3 +34,18 @@ DATABASES = {
     }
 }
 ```
+
+### Usage
+```
+>>> from turbosms.lib import send_sms, send_sms_from_template, get_default_sms_recipients
+
+# recipients param is optional (default: settings.SMS_RECIPIENTS)
+>>> send_sms('sms message', recipients=['+38096*******])  
+
+# context param is optional (dafault: {})
+# recipients param is optional (default: settings.SMS_RECIPIENTS)
+>>> send_sms_from_template('sms.txt', context={'example': 'example'}, recipients=['+38096*******])
+
+# returns default sms recipients from config
+>>> get_default_sms_recipients()
+```
