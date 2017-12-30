@@ -27,6 +27,6 @@ def send_sms(message, recipients=None):
         SMS.objects.create(number=number, message=message)
 
 
-def send_sms_from_template(template_name, context=None):
+def send_sms_from_template(template_name, context=None, recipients=None):
     message = render_to_string(template_name, context)
-    send_sms(message)
+    send_sms(message, recipients)
