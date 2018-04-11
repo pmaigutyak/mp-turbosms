@@ -1,0 +1,43 @@
+
+{% extends 'wrapper.html' %}
+
+{% load i18n widget_tweaks %}
+
+
+{% block body %}
+    <div class="container m-t-50">
+        <form method="post">
+            {% csrf_token %}
+
+            <div class="col-sm-12 {% if form.instance.placeholders %}col-md-7{% endif %}">
+                <div class="form-group {% if form.recipients.errors %}has-error{% endif %}">
+                    <label for="{{ form.recipients.auto_id }}">
+                        {{ form.recipients.label }} ({{ form.recipients.help_text }})
+                    </label>
+                    {{ form.recipients|add_class:"form-control"|attr:'rows:2' }}
+                </div>
+
+                <div class="form-group {% if form.text.errors %}has-error{% endif %}">
+                    <label for="{{ form.text.auto_id }}">
+                        {{ form.text.label }} *
+                    </label>
+                    {{ form.text|add_class:"form-control" }}
+                </div>
+
+                <button type="submit" class="btn btn-success btn-block">
+                    {% trans 'Send SMS' %}
+                </button>
+            </div>
+
+            {% if form.instance.placeholders %}
+                <div class="col-sm-12 col-md-5 m-t-30">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            {{ form.instance.placeholders|linebreaksbr }}
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+        </form>
+    </div>
+{% endblock %}

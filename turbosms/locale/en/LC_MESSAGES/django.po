@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-01-30 16:18+0200\n"
+"POT-Creation-Date: 2018-04-11 21:17+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,10 +17,58 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: models.py:55
+#: turbosms/admin.py:51
+msgid "Send"
+msgstr ""
+
+#: turbosms/admin.py:53
+msgid "Actions"
+msgstr ""
+
+#: turbosms/admin.py:71
+msgid "SMS was sent"
+msgstr ""
+
+#: turbosms/models.py:55
 msgid "SMS record"
 msgstr ""
 
-#: models.py:56
+#: turbosms/models.py:56
 msgid "SMS Records"
+msgstr ""
+
+#: turbosms/models.py:62
+msgid "Name"
+msgstr ""
+
+#: turbosms/models.py:65
+msgid "Slug"
+msgstr ""
+
+#: turbosms/models.py:68
+msgid "Recipients"
+msgstr ""
+
+#: turbosms/models.py:69
+msgid "One phone number for one line"
+msgstr ""
+
+#: turbosms/models.py:71
+msgid "Message"
+msgstr ""
+
+#: turbosms/models.py:74
+msgid "Placeholders"
+msgstr ""
+
+#: turbosms/models.py:83
+msgid "SMS Template"
+msgstr ""
+
+#: turbosms/models.py:84
+msgid "SMS Templates"
+msgstr ""
+
+#: turbosms/templates/turbosms/send_sms.html:28
+msgid "Send SMS"
 msgstr ""

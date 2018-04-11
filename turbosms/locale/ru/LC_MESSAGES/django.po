@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-01-30 16:18+0200\n"
+"POT-Creation-Date: 2018-04-11 21:17+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,10 +19,58 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
-#: models.py:55
+#: turbosms/admin.py:51
+msgid "Send"
+msgstr "Отправить"
+
+#: turbosms/admin.py:53
+msgid "Actions"
+msgstr "Действия"
+
+#: turbosms/admin.py:71
+msgid "SMS was sent"
+msgstr "СМС было отправлено"
+
+#: turbosms/models.py:55
 msgid "SMS record"
 msgstr "СМС запись"
 
-#: models.py:56
+#: turbosms/models.py:56
 msgid "SMS Records"
 msgstr "СМС записи"
+
+#: turbosms/models.py:62
+msgid "Name"
+msgstr "Название"
+
+#: turbosms/models.py:65
+msgid "Slug"
+msgstr "Код"
+
+#: turbosms/models.py:68
+msgid "Recipients"
+msgstr "Получатели"
+
+#: turbosms/models.py:69
+msgid "One phone number for one line"
+msgstr "Один номер на одну линию"
+
+#: turbosms/models.py:71
+msgid "Message"
+msgstr "Сообщение"
+
+#: turbosms/models.py:74
+msgid "Placeholders"
+msgstr "Плейсхолдеры"
+
+#: turbosms/models.py:83
+msgid "SMS Template"
+msgstr "СМС шаблон"
+
+#: turbosms/models.py:84
+msgid "SMS Templates"
+msgstr "СМС шаблоны"
+
+#: turbosms/templates/turbosms/send_sms.html:28
+msgid "Send SMS"
+msgstr "Отправить СМС"
