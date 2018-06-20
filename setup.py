@@ -19,7 +19,7 @@ setup(
     author='Paul Maigutyak',
     author_email='pmaigutyak@gmail.com',
     url=url,
-    download_url='%s/archive/%s.tar.gz' % (url, __version__),
+    download_url='{}/archive/{}.tar.gz'.format(url, __version__),
     packages=find_packages(),
     include_package_data=True,
     license='MIT',
