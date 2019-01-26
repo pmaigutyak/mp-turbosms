@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jan 26, 2019 at 04:10 PM
+-- Generation Time: Jan 26, 2019 at 04:14 PM
 -- Server version: 5.7.25-0ubuntu0.18.04.2
 -- PHP Version: 7.2.10-0ubuntu0.18.04.1
 
@@ -23,25 +23,16 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `turbosms_smsrecord`
+-- Table structure for table `turbosms_sms`
 --
 
-CREATE TABLE `turbosms_smsrecord` (
+CREATE TABLE `turbosms_sms` (
   `id` int(11) NOT NULL,
-  `msg_id` varchar(36) NOT NULL,
   `number` varchar(21) NOT NULL,
   `sign` varchar(21) NOT NULL,
   `message` longtext NOT NULL,
   `wappush` varchar(128) NOT NULL,
-  `is_flash` tinyint(1) NOT NULL,
-  `cost` decimal(4,2) NOT NULL,
-  `balance` decimal(10,2) NOT NULL,
-  `added` datetime(6) NOT NULL,
-  `send_time` datetime(6) NOT NULL,
-  `sended` datetime(6) NOT NULL,
-  `received` datetime(6) NOT NULL,
-  `error_code` varchar(3) NOT NULL,
-  `status` varchar(255) NOT NULL
+  `is_flash` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -49,9 +40,9 @@ CREATE TABLE `turbosms_smsrecord` (
 --
 
 --
--- Indexes for table `turbosms_smsrecord`
+-- Indexes for table `turbosms_sms`
 --
-ALTER TABLE `turbosms_smsrecord`
+ALTER TABLE `turbosms_sms`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -59,9 +50,9 @@ ALTER TABLE `turbosms_smsrecord`
 --
 
 --
--- AUTO_INCREMENT for table `turbosms_smsrecord`
+-- AUTO_INCREMENT for table `turbosms_sms`
 --
-ALTER TABLE `turbosms_smsrecord`
+ALTER TABLE `turbosms_sms`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
