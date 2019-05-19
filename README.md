@@ -7,7 +7,7 @@ Python/Django app for SQL api of turbosms.ua https://turbosms.ua/sql.html
 Install with pip:
 
 ```sh
-$ pip install django-turbosms
+pip install django-turbosms
 ```
 
 Add turbosms to settings.py:
@@ -19,7 +19,6 @@ INSTALLED_APPS = [
 ]
 
 DATABASE_ROUTERS = ['turbosms.routers.TurboSMSRouter']
-SMS_DB_TABLE_NAME = ''
 SMS_RECIPIENTS = [] # Can be set using mp-config app
 
 DATABASES = {
@@ -37,10 +36,10 @@ DATABASES = {
 
 ### Usage
 ```
->>> from turbosms.lib import send_sms, send_sms_from_template, get_default_sms_recipients
+>>> from turbosms import send_sms, send_sms_from_template, get_default_sms_recipients
 
 # recipients param is optional (default: settings.SMS_RECIPIENTS)
->>> send_sms('sms message', recipients=['+38096*******])  
+>>> send_sms('sms message', recipients=['+38096*******])
 
 # context param is optional (dafault: {})
 # recipients param is optional (default: settings.SMS_RECIPIENTS)

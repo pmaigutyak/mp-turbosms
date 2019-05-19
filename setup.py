@@ -1,7 +1,8 @@
 
 from setuptools import setup, find_packages
 
-from turbosms import __version__
+
+__version__ = '3.3'
 
 
 with open('requirements.txt') as f:

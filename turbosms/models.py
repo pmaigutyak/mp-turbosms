@@ -17,39 +17,23 @@ class SMS(models.Model):
 
     is_flash = models.BooleanField(default=False)
 
-    class Meta:
-        db_table = SMS_DB_TABLE_NAME
+    msg_id = models.CharField(max_length=36, blank=True)
 
+    cost = models.DecimalField(max_digits=4, decimal_places=2, blank=True)
 
-class SMSRecord(models.Model):
+    balance = models.DecimalField(max_digits=10, decimal_places=2, blank=True)
 
-    msg_id = models.CharField(max_length=36)
+    added = models.DateTimeField(blank=True)
 
-    number = models.CharField(max_length=21)
+    send_time = models.DateTimeField(blank=True)
 
-    sign = models.CharField(max_length=21, default=SMS_SIGNATURE)
+    sended = models.DateTimeField(blank=True)
 
-    message = models.TextField(max_length=1530)
+    received = models.DateTimeField(blank=True)
 
-    wappush = models.CharField(max_length=128)
+    error_code = models.CharField(max_length=3, blank=True)
 
-    is_flash = models.BooleanField(default=False)
-
-    cost = models.DecimalField(max_digits=4, decimal_places=2)
-
-    balance = models.DecimalField(max_digits=10, decimal_places=2)
-
-    added = models.DateTimeField()
-
-    send_time = models.DateTimeField()
-
-    sended = models.DateTimeField()
-
-    received = models.DateTimeField()
-
-    error_code = models.CharField(max_length=3)
-
-    status = models.CharField(max_length=255)
+    status = models.CharField(max_length=255, blank=True)
 
     class Meta:
         verbose_name = _('SMS record')
