@@ -16,7 +16,6 @@ setup(
     name='django-turbosms',
     version=__version__,
     description='Turbosms.ua django integration app',
-    long_description=open('README.md').read(),
     author='Paul Maigutyak',
     author_email='pmaigutyak@gmail.com',
     url=url,
