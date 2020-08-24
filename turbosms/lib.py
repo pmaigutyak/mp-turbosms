@@ -3,21 +3,21 @@ from django.apps import apps
 from django.db import connections
 from django.template.loader import render_to_string
 
-from turbosms import settings
+from turbosms import config
 
 
 def get_default_sms_recipients():
 
     if apps.is_installed('site_config'):
-        from site_config import config
-        return getattr(config, 'SMS_RECIPIENTS', settings.SMS_RECIPIENTS)
+        from site_config import config as _config
+        return getattr(config, 'SMS_RECIPIENTS', _config.SMS_RECIPIENTS)
 
-    return settings.SMS_RECIPIENTS
+    return config.SMS_RECIPIENTS
 
 
 def send_sms(message, recipients=None):
 
-    if not settings.IS_SMS_ENABLED:
+    if not config.IS_SMS_ENABLED:
         return
 
     if recipients is None:
@@ -25,14 +25,14 @@ def send_sms(message, recipients=None):
 
     query = (
         'INSERT INTO {} (number, message, sign) VALUES (%s, %s, %s)'
-    ).format(settings.SMS_DB_TABLE_NAME)
+    ).format(config.SMS_USERNAME)
 
     with connections['turbosms'].cursor() as cursor:
         for number in recipients:
             cursor.execute(query, [
                 number,
                 message,
-                settings.SMS_SIGNATURE])
+                config.SMS_SIGNATURE])
 
 
 def send_sms_from_template(template_name, context=None, recipients=None):

@@ -2,7 +2,7 @@
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
 
-from turbosms.settings import SMS_DB_TABLE_NAME, SMS_SIGNATURE
+from turbosms.config import SMS_USERNAME, SMS_SIGNATURE
 
 
 class SMS(models.Model):
@@ -38,4 +38,4 @@ class SMS(models.Model):
     class Meta:
         verbose_name = _('SMS record')
         verbose_name_plural = _('SMS Records')
-        db_table = SMS_DB_TABLE_NAME
+        db_table = SMS_USERNAME
