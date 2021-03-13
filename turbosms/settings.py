@@ -37,3 +37,6 @@ class TurboSMSSettings(object):
         return super().DATABASE_ROUTERS + [
             'turbosms.routers.TurboSMSRouter'
         ]
+
+
+default = TurboSMSSettings
