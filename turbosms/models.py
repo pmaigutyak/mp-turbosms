@@ -1,15 +1,14 @@
 
 from django.db import models
+from django.conf import settings
 from django.utils.translation import ugettext_lazy as _
-
-from turbosms.config import SMS_USERNAME, SMS_SIGNATURE
 
 
 class SMS(models.Model):
 
     number = models.CharField(max_length=21)
 
-    sign = models.CharField(max_length=21, default=SMS_SIGNATURE)
+    sign = models.CharField(max_length=21, default='Msg')
 
     message = models.TextField(max_length=1530)
 
@@ -38,4 +37,4 @@ class SMS(models.Model):
     class Meta:
         verbose_name = _('SMS record')
         verbose_name_plural = _('SMS Records')
-        db_table = SMS_USERNAME
+        db_table = getattr(settings, 'SMS_USERNAME', '')
