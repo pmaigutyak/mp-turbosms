@@ -2,7 +2,7 @@
 from setuptools import setup, find_packages
 
 
-__version__ = '3.5.2'
+__version__ = '3.5.3'
 
 
 with open('requirements.txt') as f:

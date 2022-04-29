@@ -5,7 +5,10 @@ from django.utils.translation import ugettext_lazy as _
 
 def setup_settings(settings, is_prod, **kwargs):
 
-    settings['DATABASE_ROUTERS'] += ['turbosms.routers.TurboSMSRouter']
+    settings['DATABASE_ROUTERS'] = (
+        settings.get('DATABASE_ROUTERS', []) +
+        ['turbosms.routers.TurboSMSRouter']
+    )
 
     if settings.get('IS_SMS_ENABLED'):
         settings['DATABASES']['turbosms'] = {
