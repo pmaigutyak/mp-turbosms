@@ -12,5 +12,6 @@ storage.db
 *.pem
 *.crt
 media
+build
 dist
 django_turbosms.egg-info
