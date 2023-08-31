@@ -2,7 +2,7 @@
 from setuptools import setup, find_packages
 
 
-__version__ = '4.0.0'
+__version__ = '0.0.1'
 
 
 with open('requirements.txt') as f:
@@ -13,9 +13,9 @@ url = 'https://github.com/pmaigutyak/mp-turbosms'
 
 
 setup(
-    name='django-turbosms',
+    name='turbosms',
     version=__version__,
-    description='Turbosms.ua django integration app',
+    description='Turbosms python integration app',
     author='Paul Maigutyak',
     author_email='pmaigutyak@gmail.com',
     url=url,

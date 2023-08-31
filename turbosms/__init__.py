@@ -1,29 +1,58 @@
+import requests
 
-from django.apps import AppConfig
-from django.utils.translation import gettext_lazy as _
+from django.conf import settings
+from django.template.loader import render_to_string
 
 
-def setup_settings(settings, is_prod, **kwargs):
+def get_default_sms_recipients():
 
-    settings['DATABASE_ROUTERS'] = (
-        settings.get('DATABASE_ROUTERS', []) +
-        ['turbosms.routers.TurboSMSRouter']
+    try:
+        from site_config import config
+        recipients = config.SMS_RECIPIENTS
+    except Exception:
+        recipients = None
+
+    return recipients or getattr(settings, 'SMS_RECIPIENTS', [])
+
+
+def send_sms(message, recipients=None, debug=False):
+
+    if not getattr(settings, 'IS_SMS_ENABLED', False):
+        if debug:
+            raise Exception("settings.IS_SMS_ENABLED is not True")
+        return
+
+    if not getattr(settings, 'SMS_TOKEN'):
+        if debug:
+            raise Exception("settings.SMS_TOKEN is undefined")
+        return
+
+    if recipients is None:
+        recipients = get_default_sms_recipients()
+
+    if not recipients:
+        if debug:
+            raise Exception("no recipients found")
+        return
+
+    response = requests.post(
+        url=(
+            'https://api.turbosms.ua/message/send.json?token=%s' %
+            settings.SMS_TOKEN
+        ),
+        json={
+            "recipients": recipients,
+            "sms": {
+                "sender": getattr(settings, 'SMS_SIGNATURE', 'Msg'),
+                "text": message
+            }
+        }
     )
 
-    if settings.get('IS_SMS_ENABLED'):
-        settings['DATABASES']['turbosms'] = {
-            'ENGINE': 'django.db.backends.mysql',
-            'NAME': 'users',
-            'USER': settings.get('SMS_USERNAME'),
-            'PASSWORD': settings.get('SMS_PASSWORD'),
-            'HOST': '94.249.146.189',
-            'PORT': ''
-        }
+    if response.status_code != 200 and debug:
+        raise Exception(response.content)
 
 
-class TurboSMSConfig(AppConfig):
-    name = 'turbosms'
-    verbose_name = _("Turbosms")
-
-
-default_app_config = 'turbosms.TurboSMSConfig'
+def send_sms_from_template(template_name, context=None, recipients=None):
+    message = render_to_string(template_name, context)
+    send_sms(message, recipients)
