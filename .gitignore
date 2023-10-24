@@ -14,4 +14,4 @@ storage.db
 media
 build
 dist
-django_turbosms.egg-info
+turbosms.egg-info
